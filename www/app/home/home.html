@@ -1,5 +1,22 @@
 <ion-view ng-controller="homeCtrl" view-title="Orders Up!">
     <ion-content>
-        <h1>Test</h1>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+
+        <div class="list list-inset">
+            <a class="item item-thumbnail-left" href="#" ng-repeat="image in images">
+                <img ng-src="{{image.src}}">
+                <h2>Some Restaurant</h2>
+                <p>Stars will be here</p>
+            </a>
+        </div>
+
+        <div class="content padding">
+            <a class="button button-block icon-right ion-chevron-right button-assertive">Custom Order</a>
+        </div>
     </ion-content>
 </ion-view>
