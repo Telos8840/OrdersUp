@@ -4,18 +4,76 @@
 (function () {
   'use strict';
 
-  angular.module('ordersUpApp').controller('homeCtrl', ['$scope', homeCtrl]);
+  angular.module('ordersUpApp').controller('homeCtrl', ['$scope', '$http', 'ordersUpApi', homeCtrl]);
 
-  function homeCtrl($scope){
+  function homeCtrl($scope, $http, ordersUpApi){
 
     $scope.images = [];
     for(var i = 0; i < 6; i++){
       $scope.images.push({
         id: i,
-        src: 'http://lorempixel.com/150/150/food'});
+        src: 'http://lorempixel.com/150/150/food',
+        name: 'Restaurant ' + (i+1)});
     }
+
+    /*$scope.getTimeStamp = function () {
+      var httpMethod = 'GET',
+        url = 'http://api.yelp.com/v2/search',
+        params = {
+          oauth_consumer_key : '-4fDBHtBlzsXWKwCqzcxww',
+          oauth_nonce : 'a2',
+          oauth_signature_method : 'HMAC-SHA1',
+          oauth_timestamp : Math.round((new Date()).getTime() / 1000.0),
+          oauth_token : 'aE-Cl-LvQDa7yA7IifiiEYzxVyhmXF_x',
+          oauth_version : '1.0'
+        },
+        consumerSecret = 'YN7XXv9wPpNx4XdzawKfdUZGZOc',
+        tokenSecret = 'q2DchA91cNCp3Uj3VDADjQlk2Ek',
+      // generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
+        encodedSignature = oauthSignature.generate(httpMethod, url, params, consumerSecret, tokenSecret),
+      // generates a BASE64 encode HMAC-SHA1 hash
+        signature = oauthSignature.generate(httpMethod, url, params, consumerSecret, tokenSecret,
+          { encodeSignature: false});
+
+      console.log(Math.round((new Date()).getTime() / 1000.0));
+      console.log(signature);
+
+      console.log(params);
+
+      var generatedUrl = createUrl(url, params, signature);
+      generatedUrl += "term=food";
+      console.log(generatedUrl);
+
+
+      $http.get(generatedUrl)
+        .success(function (data) {
+          console.log(data);
+        })
+        .error(function (data) {
+          console.log(data);
+        });
+
+    };
+
+    function createUrl(url, params, signature){
+      var paramString = "";
+      for(var name in params) {
+        if(name == "oauth_nonce"){
+          paramString += name + "=" + params[name] + "&";
+          paramString += "oauth_signature=" + signature + "&";
+        } else {
+          paramString += name + "=" + params[name] + "&";
+        }
+      }
+
+      return url + "?location=Los+Angeles&" + paramString
+    }*/
 
 
   };
 
+
+
 })();
+
+//http://api.yelp.com/v2/search?term=food&location=Los+Angeles&oauth_consumer_key=-4fDBHtBlzsXWKwCqzcxww&oauth_token=aE-Cl-LvQDa7yA7IifiiEYzxVyhmXF_x&oauth_signature_method=HMAC-SHA1&oauth_signature=q2DchA91cNCp3Uj3VDADjQlk2Ek&oauth_timestamp=1419372098&oauth_nonce=qwerty

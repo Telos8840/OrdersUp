@@ -10,13 +10,15 @@
         <div class="list list-inset">
             <a class="item item-thumbnail-left" href="#" ng-repeat="image in images">
                 <img ng-src="{{image.src}}">
-                <h2>Some Restaurant</h2>
+                <h2>{{image.name}}</h2>
                 <p>Stars will be here</p>
+                <img src="../img/yelp-logo.png">
             </a>
         </div>
-
-        <div class="content padding">
-            <a class="button button-block icon-right ion-chevron-right button-assertive">Custom Order</a>
-        </div>
     </ion-content>
+
+    <div style="position: fixed; bottom: 0; width: 100%; height: 55px">
+        <a class="button button-full icon-right ion-chevron-right button-assertive" ng-click="getTimeStamp()">Custom Order</a>
+    </div>
+
 </ion-view>
