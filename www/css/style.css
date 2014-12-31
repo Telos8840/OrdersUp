@@ -1,1 +1,36 @@
-/* Empty. Add your own CSS if you like */
+/*Yelp Stars*/
+.star {
+    width: 84px;
+    height: 19px;
+}
+.none {
+    background: url('../img/yelp-stars.png') 0px 0px;
+}
+.one {
+    background: url('../img/yelp-stars.png') 0px -17px;
+}
+.oneHalf {
+    background: url('../img/yelp-stars.png') 0px -35px;
+}
+.two {
+    background: url('../img/yelp-stars.png') 0px -53px;
+}
+.twoHalf {
+    background: url('../img/yelp-stars.png') 0px -71px;
+}
+.three {
+    background: url('../img/yelp-stars.png') 0px -89px;
+}
+.threeHalf {
+    background: url('../img/yelp-stars.png') 0px -108px;
+}
+.four {
+    background: url('../img/yelp-stars.png') 0px -125px;
+}
+.fourHalf {
+    background: url('../img/yelp-stars.png') 0px -143px;
+}
+.five {
+    background: url('../img/yelp-stars.png') 0px -161px;
+}
+/*Yelp Stars*/

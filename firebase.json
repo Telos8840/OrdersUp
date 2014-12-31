@@ -1,0 +1,9 @@
+{
+  "firebase": "orders-up",
+  "public": "www",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

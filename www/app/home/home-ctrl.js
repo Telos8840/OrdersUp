@@ -4,17 +4,59 @@
 (function () {
   'use strict';
 
-  angular.module('ordersUpApp').controller('homeCtrl', ['$scope', '$http', 'ordersUpApi', homeCtrl]);
+  angular.module('ordersUpApp').controller('homeCtrl', ['$scope', '$ionicPopup', homeCtrl]);
 
-  function homeCtrl($scope, $http, ordersUpApi){
+  function homeCtrl($scope, $ionicPopup){
 
-    $scope.images = [];
+    $scope.restaurants = [];
+    var stars = ['none', 'one', 'oneHalf', 'two', 'twoHalf', 'three', 'threeHalf', 'four', 'fourHalf', 'five'];
     for(var i = 0; i < 6; i++){
-      $scope.images.push({
+      $scope.restaurants.push({
         id: i,
         src: 'http://lorempixel.com/150/150/food',
-        name: 'Restaurant ' + (i+1)});
+        name: 'Restaurant ' + (i+1),
+        reviews: Math.floor((Math.random() * 1000) + 1),
+        stars: stars[Math.floor((Math.random() * 9) + 0)]
+      });
     }
+
+    // Triggered on a button click, or some other target
+    $scope.showPopup = function() {
+      $scope.order = {}
+
+      // An elaborate, custom popup
+      var myPopup = $ionicPopup.show({
+        template: '<input type="text" ng-model="order.name">',
+        title: 'Enter Restaurant Name',
+        //subTitle: 'Please use normal things',
+        scope: $scope,
+        buttons: [
+          { text: 'Cancel' },
+          {
+            text: '<b>Save</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              if (!$scope.order.name) {
+                //don't allow the user to close unless they enter name
+                e.preventDefault();
+              } else {
+                console.log($scope.order.name);
+                return $scope.order.name;
+              }
+            }
+          }
+        ]
+      });
+      /*myPopup.then(function(res) {
+        console.log('Tapped!', res);
+      });*/
+    };
+
+
+
+
+
+
 
     /*$scope.getTimeStamp = function () {
       var httpMethod = 'GET',
