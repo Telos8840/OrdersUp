@@ -4,19 +4,20 @@
 (function () {
   'use strict';
 
-  angular.module('ordersUpApp').controller('homeCtrl', ['$scope', '$ionicPopup', homeCtrl]);
+  angular.module('ordersUpApp').controller('homeCtrl', ['$scope', '$state', '$ionicPopup', homeCtrl]);
 
-  function homeCtrl($scope, $ionicPopup){
+  function homeCtrl($scope, $state, $ionicPopup){
 
     $scope.restaurants = [];
     var stars = ['none', 'one', 'oneHalf', 'two', 'twoHalf', 'three', 'threeHalf', 'four', 'fourHalf', 'five'];
-    for(var i = 0; i < 6; i++){
+    for(var i = 0; i < 20; i++){
       $scope.restaurants.push({
         id: i,
-        src: 'http://lorempixel.com/150/150/food',
+        src: 'http://lorempixel.com/100/100/food',
         name: 'Restaurant ' + (i+1),
         reviews: Math.floor((Math.random() * 1000) + 1),
-        stars: stars[Math.floor((Math.random() * 9) + 0)]
+        stars: stars[Math.floor((Math.random() * 9) + 0)],
+        distance: ((Math.random() * 10) + 0).toFixed(2)
       });
     }
 
@@ -52,6 +53,9 @@
       });*/
     };
 
+    $scope.goToDetails = function () {
+      $state.go("app.restDetails");
+    };
 
 
 

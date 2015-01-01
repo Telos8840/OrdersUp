@@ -34,3 +34,8 @@
     background: url('../img/yelp-stars.png') 0px -161px;
 }
 /*Yelp Stars*/
+
+small {
+    font-size: 75%;
+    color: #777
+}

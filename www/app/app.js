@@ -42,6 +42,15 @@ angular.module('ordersUpApp', ['ionic'])
             templateUrl: "app/home/home.html"
           }
         }
+      })
+
+      .state('app.restDetails', {
+        url: "/restaurant-details",
+        views: {
+          'mainContent': {
+            templateUrl: "app/restaurant-details/restaurant-details.html"
+          }
+        }
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');

@@ -8,14 +8,28 @@
         </div>
 
         <div class="list list-inset" style="padding-bottom: 45px">
-            <a class="item item-thumbnail-left" href="#" ng-repeat="restaurant in restaurants">
+            <a class="item item-thumbnail-left item-icon-right" ng-click="goToDetails()" ng-repeat="restaurant in restaurants" style="padding-top: 20px">
                 <img ng-src="{{restaurant.src}}">
-                <h2>{{restaurant.name}}</h2>
                 <div class="row" style="margin: 0; padding: 0">
-                    <div class="col col-33" style="margin: 0; padding: 0"><div class="star {{restaurant.stars}}"></div></div>
-                    <div class="col col-50" style="margin-left: 10px; padding: 0"><small style="font-size: 75%; color: #777">{{restaurant.reviews}} Reviews</small></div>
+                    <div class="col col-75" style="margin: 0; padding: 0">
+                        <h2>{{restaurant.name}}</h2>
+                    </div>
+                    <div class="col col-offset-10" style="padding: 0">
+                        <small>{{restaurant.distance}} mi</small>
+                    </div>
                 </div>
-                <img src="../img/yelp-logo.png">
+                <div class="row" style="margin: 0; padding: 0">
+                    <div class="col col-33" style="padding: 0"><div class="star {{restaurant.stars}}"></div></div>
+                    <div class="col col-50" style="margin-left: 25px; padding: 0"><small>{{restaurant.reviews}} Reviews</small></div>
+                </div>
+                <div class="row" style="margin: 0; padding: 0">
+                    <div class="col col-75" style="padding: 0">
+                        <small>Restaurant Categories</small></div>
+                    <div class="col col-offset-10" style="padding: 0">
+                        <img src="../img/yelp-logo.png">
+                    </div>
+                </div>
+                <i class="icon ion-chevron-right icon-accessory"></i>
             </a>
         </div>
     </ion-content>
