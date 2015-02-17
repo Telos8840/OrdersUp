@@ -57,11 +57,6 @@
       $state.go("app.restDetails");
     };
 
-
-
-
-
-
     /*$scope.getTimeStamp = function () {
       var httpMethod = 'GET',
         url = 'http://api.yelp.com/v2/search',
